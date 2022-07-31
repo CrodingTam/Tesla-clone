@@ -1,32 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
+
 
 function Section(props) {  //or we can use unpacking object like this:   {title}  and we can just use without pre context props
-  console.log(props);
   return(
     <Wrap bgImage = {props.backgroundImg} >
-        
+        <Fade bottom>
+            <ItemText>
+            <h1> {props.title} </h1>
+            <p> {props.description} </p>
+            </ItemText>
+        </Fade>
 
-
-        <ItemText>
-          <h1> {props.title} </h1>
-          <p> {props.description} </p>
-        </ItemText>
-        
         <Buttons>
-            <ButtonGroup>
-                <LeftButton>
-                    {props.leftBtnText}
-                </LeftButton>
+            <Fade bottom>
+                <ButtonGroup>
+                    <LeftButton>
+                        {props.leftBtnText}
+                    </LeftButton>
 
-                {props.rightBtnText &&  //if the right button is exist, then create it, otherwise the button component is singleton
-                  <RightButton>
-                    {props.rightBtnText}
-                  </RightButton>
-                }
-               
-            </ButtonGroup>
-            <DownArrow src="/images/down-arrow.svg" />
+                    {props.rightBtnText &&  //if the right button is exist, then create it, otherwise the button component is singleton
+                    <RightButton>
+                        {props.rightBtnText}
+                    </RightButton>
+                    }
+                
+                </ButtonGroup>
+                <DownArrow src="/images/down-arrow.svg" />
+            </Fade>
+         
         </Buttons>
 
     </Wrap>
